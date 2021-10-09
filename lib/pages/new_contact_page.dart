@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:visiting_card_contact_class5/db/temp_db.dart';
 import 'package:visiting_card_contact_class5/models/contact_model.dart';
 import 'package:visiting_card_contact_class5/utils/utils.dart';
 
@@ -165,9 +166,9 @@ class _NewContactPageState extends State<NewContactPage> {
             ),
             SizedBox(height: 5,),
             TextFormField(
-              controller: _nameControler,
+              controller: _webControler,
               decoration: InputDecoration(
-                labelText: "Contact Name",
+                labelText: "Website",
 
                 prefixIcon: Icon(Icons.person),
               ),
@@ -220,7 +221,19 @@ class _NewContactPageState extends State<NewContactPage> {
 
     if(_fromKey.currentState!.validate())
       {
+        final contact =ContactModel(
+          name: _nameControler.text,
+          companyName: _companyControler.text,
+          designation: _designationControler.text,
+          address: _addressControler.text,
+          mobile: _phoneControler.text,
+          email: _mailControler.text,
+          website: _webControler.text
+        );
+        print(contact);
 
+        contactList.add(contact);
+        Navigator.pop(context);
       }
   }
 }
