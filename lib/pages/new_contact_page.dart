@@ -1,20 +1,226 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:visiting_card_contact_class5/models/contact_model.dart';
+import 'package:visiting_card_contact_class5/utils/utils.dart';
 
 class NewContactPage extends StatefulWidget {
   static const String routeName='/new_contact';
+
 
   @override
   _NewContactPageState createState() => _NewContactPageState();
 }
 
 class _NewContactPageState extends State<NewContactPage> {
+  final _nameControler=TextEditingController();
+  final _designationControler=TextEditingController();
+  final _addressControler=TextEditingController();
+  final _mailControler=TextEditingController();
+  final _phoneControler=TextEditingController();
+  final _webControler=TextEditingController();
+  final _companyControler=TextEditingController();
+  final _fromKey=GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _nameControler.dispose();
+    _designationControler.dispose();
+    _addressControler.dispose();
+    _mailControler.dispose();
+    _phoneControler.dispose();
+    _webControler.dispose();
+    _companyControler.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("New Contact"),
+        actions: [
+          IconButton(onPressed: _saveContact, icon: Icon(Icons.save)),
+
+        ],
+      ),
+      
+      body: Form(
+        key: _fromKey,
+        child: ListView(
+          padding: EdgeInsets.all(8),
+          children: [
+            TextFormField(
+              controller: _nameControler,
+              decoration: InputDecoration(
+                labelText: "Contact Name",
+
+                prefixIcon: Icon(Icons.person),
+              ),
+              validator: (value)
+              {
+                if(value==null||value.isEmpty)
+                  {
+                    return msg;
+                  }
+                if(value.length>15)
+                {
+                  return msg2;
+                }
+                    return null;
+
+              },
+
+            ),
+            SizedBox(height: 5,),
+            TextFormField(
+              controller: _designationControler,
+              decoration: InputDecoration(
+                labelText: "Designation",
+
+                prefixIcon: Icon(Icons.person),
+              ),
+              validator: (value)
+              {
+                if(value==null||value.isEmpty)
+                {
+                  return msg;
+                }
+                if(value.length>15)
+                {
+                  return msg2;
+                }
+                return null;
+
+              },
+
+            ),
+            SizedBox(height: 5,),
+            TextFormField(
+              controller: _companyControler,
+              decoration: InputDecoration(
+                labelText: "Coompany Name",
+
+                prefixIcon: Icon(Icons.person),
+              ),
+              validator: (value)
+              {
+                if(value==null||value.isEmpty)
+                {
+                  return msg;
+                }
+                if(value.length>15)
+                {
+                  return msg2;
+                }
+                return null;
+
+              },
+
+            ),
+            SizedBox(height: 5,),
+            TextFormField(
+              controller: _mailControler,
+              decoration: InputDecoration(
+                labelText: "E-mail",
+
+                prefixIcon: Icon(Icons.person),
+              ),
+              validator: (value)
+              {
+                if(value==null||value.isEmpty)
+                {
+                  return msg;
+                }
+                if(value.length>15)
+                {
+                  return msg2;
+                }
+                return null;
+
+              },
+
+            ),
+            SizedBox(height: 5,),
+            TextFormField(
+              controller: _phoneControler,
+              decoration: InputDecoration(
+                labelText: "Phone No",
+
+                prefixIcon: Icon(Icons.person),
+              ),
+              validator: (value)
+              {
+                if(value==null||value.isEmpty)
+                {
+                  return msg;
+                }
+                if(value.length>15)
+                {
+                  return msg2;
+                }
+                return null;
+
+              },
+
+            ),
+            SizedBox(height: 5,),
+            TextFormField(
+              controller: _nameControler,
+              decoration: InputDecoration(
+                labelText: "Contact Name",
+
+                prefixIcon: Icon(Icons.person),
+              ),
+              validator: (value)
+              {
+                if(value==null||value.isEmpty)
+                {
+                  return msg;
+                }
+                if(value.length>15)
+                {
+                  return msg2;
+                }
+                return null;
+
+              },
+
+            ),
+            SizedBox(height: 5,),
+            TextFormField(
+              controller: _addressControler,
+              decoration: InputDecoration(
+                labelText: "Address",
+
+                prefixIcon: Icon(Icons.person),
+              ),
+              validator: (value)
+              {
+                if(value==null||value.isEmpty)
+                {
+                  return msg;
+                }
+                if(value.length>15)
+                {
+                  return msg2;
+                }
+                return null;
+
+              },
+
+            ),
+            
+          ],
+        ),
       ),
     );
+  }
+
+  void _saveContact() {
+
+    if(_fromKey.currentState!.validate())
+      {
+
+      }
   }
 }
