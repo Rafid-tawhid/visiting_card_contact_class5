@@ -230,10 +230,11 @@ class _NewContactPageState extends State<NewContactPage> {
           email: _mailControler.text,
           website: _webControler.text
         );
+        // ignore: avoid_print
         print(contact);
 
         contactList.add(contact);
-        Navigator.pop(context);
+        Navigator.pop(context,true);
       }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visiting_card_contact_class5/models/contact_model.dart';
+import 'package:visiting_card_contact_class5/pages/contact_details_page.dart';
 
 
 class ContactRowItem extends StatefulWidget {
@@ -21,7 +22,9 @@ class _ContactRowItemState extends State<ContactRowItem> {
       child: Card(
         elevation: 5,
         child: ListTile(
-          onTap: (){},
+          onTap: (){
+            Navigator.pushNamed(context, ContactDetails.routeName,arguments: widget.contact);
+          },
           title: Text(widget.contact.name),
           tileColor: Colors.white,
           subtitle: Text(widget.contact.designation),

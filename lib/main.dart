@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:visiting_card_contact_class5/pages/contact_details_page.dart';
 import 'package:visiting_card_contact_class5/pages/contact_list_page.dart';
 import 'package:visiting_card_contact_class5/pages/new_contact_page.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         ContactListPage.routeName:(context)=>ContactListPage(),
         NewContactPage.routeName:(context)=>NewContactPage(),
+        ContactDetails.routeName:(context)=>ContactDetails(),
       },
     );
   }

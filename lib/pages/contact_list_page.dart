@@ -27,8 +27,19 @@ class _ContactListPageState extends State<ContactListPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.pushNamed(context, NewContactPage.routeName);
+        onPressed: () async{
+         final status= await Navigator.pushNamed(context, NewContactPage.routeName);
+         print('something');
+         if(status != null)
+           {
+             if(status is bool)
+               {
+                 setState(() {
+
+                 });
+               }
+           }
+
         },
         child: Icon(Icons.add),
 
