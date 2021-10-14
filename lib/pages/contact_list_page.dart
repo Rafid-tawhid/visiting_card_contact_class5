@@ -5,6 +5,7 @@ import 'package:visiting_card_contact_class5/custom_widget/sqlite_helper.dart';
 
 import 'package:visiting_card_contact_class5/models/contact_model.dart';
 import 'package:visiting_card_contact_class5/pages/new_contact_page.dart';
+import 'package:visiting_card_contact_class5/pages/scan_page.dart';
 
 class ContactListPage extends StatefulWidget {
 
@@ -51,17 +52,17 @@ class _ContactListPageState extends State<ContactListPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async{
-         final status= await Navigator.pushNamed(context, NewContactPage.routeName);
+         final status= await Navigator.pushNamed(context, ScanPage.routeName);
          print('something');
-         if(status != null)
-           {
-             if(status is bool)
-               {
-                 setState(() {
-
-                 });
-               }
-           }
+         // if(status != null)
+         //   {
+         //     if(status is bool)
+         //       {
+         //         setState(() {
+         //
+         //         });
+         //       }
+         //   }
 
         },
         child: Icon(Icons.add),
